@@ -4,14 +4,17 @@
   "description": "cpokes game logic api server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "node start-client.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.2"
-  },
-  "devDependencies": {
-    "express-generator": "^4.16.1"
+    "babel-core": "^6.26.3",
+    "concurrently": "^7.0.0",
+    "express": "^4.17.2",
+    "fs": "^0.0.1-security"
   }
 }
