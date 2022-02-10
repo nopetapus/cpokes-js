@@ -63,8 +63,8 @@ class Round {
 }
 
 class Game {
-    constructor() {
-        this.id = _.uniqueId('game-');
+    constructor(gameid) {
+        this.id = gameid;
         this.players = []
     }
     setup() {

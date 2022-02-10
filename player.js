@@ -1,8 +1,7 @@
-const _ = require('lodash')
 
 class Player {
-    constructor(name) {
-        this.id = _.uniqueId("player-");
+    constructor(name, id) {
+        this.playerid = id
         this.name = name;
         this.order = null;
     };
