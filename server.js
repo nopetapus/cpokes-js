@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const Game = require('./cpokes.js')
 const Player = require('./player.js')
 const fs = require("fs");
