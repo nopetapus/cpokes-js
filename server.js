@@ -1,14 +1,22 @@
 const express = require('express');
+const Game = require('./cpokes.js')
+const Player = require('./player.js')
 const fs = require("fs");
 const app = express()
 const port = 3001
 
-app.route('/api') {
+app.post('/join/:playername-:gameid', (req, res) => {
+    var player = new Player(req.params.playername);
+    res.send('player joined game.');
+})
 
-};
+app.post('./create/:playername', (req, res) => {
+    console.log(req.params.playername);
+})
 
-app.post('/players/create/:', (req, res) => {
-    console.log(``)
+app.get('./game/:gameid/', (req, res) => {
+    //get game status
+    res.sendJson()
 })
 
 app.listen(port, () => {

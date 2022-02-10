@@ -57,41 +57,25 @@ class Deck {
     }
 }
 
-class Player {
-    constructor(playerno, name) {
-        this.id = playerno;
-        this.name = name;
-        this.order = null;
-    };
-    lead() {
-
-    }
-    play(value, number) {
-        try {
-            
-        } catch {
-
-        } finally {
-
-        }
-    }
-}
-
 class Round {
     constructor(cards) {
     }
 }
 
 class Game {
-    constructor(players) {
+    constructor() {
         this.id = _.uniqueId('game-');
         this.players = []
-        for (let player in players) {
-            this.players.push(new Player(player.playerno, player.name));
-        }
+    }
+    setup() {
         this.deck = new Deck();
         this.deck.deal(this.players);
         this.gameComplete = false;
+    }
+    add_player(player) {
+        if (this.players.length < 6) {
+            this.players.push(player)
+        }
     }
     play() {
         do(
@@ -100,4 +84,4 @@ class Game {
     }
 }
 
-exports.game = new Game()
+module.exports = Game;
