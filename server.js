@@ -3,8 +3,12 @@ const fs = require("fs");
 const app = express()
 const port = 3001
 
-app.get('/', (req, res) => {
-    res.send("Hello, world!")
+app.route('/api') {
+
+};
+
+app.post('/players/create/:', (req, res) => {
+    console.log(``)
 })
 
 app.listen(port, () => {
