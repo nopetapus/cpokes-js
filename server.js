@@ -1,22 +1,24 @@
 const express = require('express');
-const bodyParser = require('body-parser')
 const cors = require('cors')
 const Game = require('./cpokes.js')
 const Player = require('./player.js')
 const fs = require("fs");
-const lodash = require('lodash')
+const lodash = require('lodash');
+const { json } = require('body-parser');
 const app = express()
 const port = 3001
 
 var gameDict = {}
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
-    res.send('No defined method here.')
+    res.sendStatus(404);
 })
 
-app.post('/join/:playername-:gameid', (req, res) => {
+app.post('/join', (req, res) => {
     const playerid = lodash.uniqueId('player-')
-    const playername = req.params.playername;
+    const playername = req.body;
     const gameid = req.params.gameid;
 
     if (!gameDict.hasOwnProperty(gameid)) {
@@ -28,7 +30,7 @@ app.post('/join/:playername-:gameid', (req, res) => {
     res.send(gameDict[gameid]);
 })
 
-app.post('./create/:playername', (req, res) => {
+app.post('./create', (req, res) => {
     const gameid = lodash.uniqueId('game-');
     const playerid = lodash.uniqueId('player-');
     

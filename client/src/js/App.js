@@ -109,6 +109,7 @@ class App extends React.Component {
     }
 
     handlePlayerSubmit(event) {
+        fetch('http://localhost:3001/join')
     }
 
     render() {
