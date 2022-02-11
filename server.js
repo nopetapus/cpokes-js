@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 const cors = require('cors')
 const Game = require('./cpokes.js')
 const Player = require('./player.js')
@@ -35,10 +36,12 @@ app.post('./create/:playername', (req, res) => {
     res.send(gameDict[gameid])
 })
 
-app.get('./game/:gameid/', (req, res) => {
+app.get('./game/', (req, res) => {
     //get game status
     res.send(gameDict[req.params.gameid])
 })
+
+app.post('./game/', (req, res))
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

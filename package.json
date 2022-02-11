@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.26.3",
+    "body-parser": "^1.19.1",
     "concurrently": "^7.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
