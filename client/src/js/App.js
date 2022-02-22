@@ -109,7 +109,14 @@ class App extends React.Component {
     }
 
     handlePlayerSubmit(event) {
-        fetch('http://localhost:3001/join')
+        const requestBody = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ title: event})
+        }
+        fetch('http://localhost:3001/join', requestBody)
+            .then(response => response.json())
+            .then(data => this.setState({ postId: data.id}))
     }
 
     render() {
